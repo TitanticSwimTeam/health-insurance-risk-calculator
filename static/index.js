@@ -1,14 +1,14 @@
 async function calculateBMI(){
     //Gets variables from the form
-    var height = document.getElementById("height");
-    height = height.toString();
-    var heightUnits = document.getElementById("heightUnits");
+    var height = document.getElementById("height").value;
+    const heightString = height.toString();
+    var heightUnits = document.getElementById("heightUnits").value;
     var weight = document.getElementById("weight");
-    weight = weight.toString();
-    var weightUnits = document.getElementById("weightUnits");
+    const weightString = weight.toString();
+    var weightUnits = document.getElementById("weightUnits").value;
     var age = document.getElementById("age");
-    age = age.toString();
-    var bloodPressure = document.getElementById("bloodPressure");
+    const ageString = age.toString();
+    var bloodPressure = document.getElementById("bloodPressure").value;
 
     // See if Check Boxes are Checked
     var diabetesCheck = document.getElementById("diabetesCheck");
@@ -21,7 +21,7 @@ async function calculateBMI(){
     const isCancerChecked = document.querySelector('#cancerCheck');
 
     //response
-    const response = await fetch(`https://health-insurance-risk-calc-api.azurewebsites.net/api/bmi?height=${height}&heightUnits=${heightUnits}&weight=${weight}&weightUnits=${weightUnits}&age=${age}&bloodpressure=${bloodPressure}&diabetes=${isDiabetesChecked.checked}&alzheimers=${isAlzheimerChecked.checked}&cancer=${isCancerChecked.checked}`);
+    const response = await fetch(`https://health-insurance-risk-calc-api.azurewebsites.net/api/bmi?height=${heightString}&heightUnits=${heightUnits}&weight=${weightString}&weightUnits=${weightUnits}&age=${ageString}&bloodpressure=${bloodPressure}&diabetes=${isDiabetesChecked.checked}&alzheimers=${isAlzheimerChecked.checked}&cancer=${isCancerChecked.checked}`);
     const responseJson = await response.json();
     console.log(responseJson.bmi);
     
