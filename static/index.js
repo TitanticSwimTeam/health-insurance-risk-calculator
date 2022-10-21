@@ -3,10 +3,10 @@ async function calculateBMI(){
     var height = document.getElementById("height").value;
     const heightString = height.toString();
     var heightUnits = document.getElementById("heightUnits").value;
-    var weight = document.getElementById("weight");
+    var weight = document.getElementById("weight").value;
     const weightString = weight.toString();
     var weightUnits = document.getElementById("weightUnits").value;
-    var age = document.getElementById("age");
+    var age = document.getElementById("age").value;
     const ageString = age.toString();
     var bloodPressure = document.getElementById("bloodPressure").value;
 
