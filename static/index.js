@@ -21,14 +21,15 @@ async function calculateBMI(){
     const isCancerChecked = document.querySelector('#cancerCheck');
 
     //response
-    const res1 = await fetch(`https://health-insurance-risk-calc-api.azurewebsites.net/api/bmi?height=${heightString}&heightUnits=${heightUnits}&weight=${weightString}&weightUnits=${weightUnits}`);
+    const res1 = await fetch(`http://localhost:1337/api/bmi?height=${heightString}&heightUnits=${heightUnits}&weight=${weightString}&weightUnits=${weightUnits}`);
     const res1JSON = await res1.json();
     var bmi = res1JSON.bmi;
-    
+    console.log(bmi);
+
     //response
-    const res2 = await fetch(`https://health-insurance-risk-calc-api.azurewebsites.net/api/risk?bmi=${bmi}&age=${ageString}&bloodpressure=${bloodPressure}&diabetes=${isDiabetesChecked.checked}&alzheimers=${isAlzheimerChecked.checked}&cancer=${isCancerChecked.checked}`);
+    const res2 = await fetch(`http://localhost:1337/api/risk?bmi=${bmi}&age=${ageString}&bloodpressure=${bloodPressure}&diabetes=${isDiabetesChecked.checked}&alzheimers=${isAlzheimerChecked.checked}&cancer=${isCancerChecked.checked}`);
     const res2JSON = await res2.json();
-    
-    document.getElementById('risk').innerHTML = `<p>${res2JSON.risk}</p>`;
-    document.getElementById('score').innerHTML = `<p>${res2JSON.score}</p>`;
+    console.log(res2JSON);
+    document.getElementById('risk').innerHTML = `<b>${res2JSON.risk}</b>`;
+    document.getElementById('score').innerHTML = `<b>${res2JSON.score}</b>`;
 }
