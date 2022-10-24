@@ -1,12 +1,12 @@
 async function calculateBMI(){
     //Gets variables from the form
-    var height = document.getElementById("height").value;
+    var height = parseInt(document.getElementById("height").value);
     const heightString = height.toString();
     var heightUnits = document.getElementById("heightUnits").value;
-    var weight = document.getElementById("weight").value;
+    var weight = parseInt(document.getElementById("weight").value);
     const weightString = weight.toString();
     var weightUnits = document.getElementById("weightUnits").value;
-    var age = document.getElementById("age").value;
+    var age = parseInt(document.getElementById("age").value);
     const ageString = age.toString();
     var bloodPressure = document.getElementById("bloodPressure").value;
 
@@ -27,20 +27,17 @@ async function calculateBMI(){
     console.log(bmi);
 
     //Validates Input
-    if(bmi === null || bmi === 0 || bloodPressure === ""){
-        if(height < 2){
-            alert("Please enter a valid height. (Minimum 2)");
-        }
-        if(weight <= 0){
-            alert("Please enter a valid weight.");
-        }
-        if(age <= 0){
-            alert("Please enter a valid age.");
-        }
-        if(bloodPressure === ""){
-            alert("Please select a blood pressure option.");
-        }
-
+    if(height < 2){ // todo: actually check for 2 feet, I cannot be bothered with this anymore
+        alert("Please enter a valid height. (Minimum 2)");
+    }
+    else if(weight <= 0){
+        alert("Please enter a valid weight.");
+    }
+    else if(age <= 0){
+        alert("Please enter a valid age.");
+    }
+    else if(bloodPressure === ""){
+        alert("Please select a blood pressure option.");
     }
     else{
     //response
